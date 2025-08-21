@@ -30,7 +30,7 @@
             line-height: 1.7;
             color: var(--color-dark);
             overflow-x: hidden;
-            background-color: var(--color-light);
+            background-color: white;
         }
         
         /* General Styles */
@@ -105,7 +105,7 @@
         .logo {
             font-size: 2rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #e74c3c, #f39c12, #27ae60, #3498db);
+            background: linear-gradient(135deg, #DE3831 0%, #FFB612 25%, #000000 50%, #007A4D 75%, #002395 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -139,7 +139,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            background: #2c3e50;
+            background-color: var(--color-dark);
             color: white;
         }
 
@@ -150,8 +150,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><pattern id="p" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23p)"/></svg>');
-            opacity: 0.5;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="rgba(255,255,255,0.05)"><path d="M0 10 L10 0 L20 10 L10 20 Z M20 30 L30 20 L40 30 L30 40 Z M40 50 L50 40 L60 50 L50 60 Z M60 70 L70 60 L80 70 L70 80 Z M80 90 L90 80 L100 90 L90 100 Z M-10 30 L0 20 L10 30 L0 40 Z M10 50 L20 40 L30 50 L20 60 Z M30 70 L40 60 L50 70 L40 80 Z M50 90 L60 80 L70 90 L60 100 Z M70 10 L80 0 L90 10 L80 20 Z M90 30 L100 20 L110 30 L100 40 Z"/></g></svg>');
             z-index: 1;
         }
 
@@ -221,7 +220,10 @@
         
         /* Problem Section */
         .problem-section {
-            background: white;
+            background: var(--color-light);
+            padding-top: 10rem;
+            margin-top: -80px;
+            clip-path: polygon(0 80px, 100% 0, 100% 100%, 0% 100%);
         }
 
         .problem-grid {
@@ -232,10 +234,16 @@
         }
 
         .problem-card {
-            background: var(--color-light);
+            background: white;
             padding: 2.5rem;
             border-radius: 15px;
             border-left: 5px solid var(--color-primary);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .problem-card:hover{
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.08);
         }
 
         .problem-card h3 {
@@ -274,6 +282,8 @@
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
             line-height: 1;
+            display: block;
+            font-style: normal;
         }
         .culture-card h3 {
             font-size: 1.6rem;
@@ -338,6 +348,15 @@
             padding: 3.5rem;
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .vision-visual::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><g fill="rgba(255,255,255,0.1)" fill-rule="evenodd"><path d="M0 0h800v800H0z" transform="rotate(45 400 400)"/></g></svg>');
+            opacity: 0.3;
         }
         .vision-visual h3 {
             font-size: 2rem;
@@ -361,9 +380,16 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         .principle-icon {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--color-primary);
             margin-bottom: 1rem;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 50%;
+            background: #ffe8e5;
+            display: inline-block;
+            font-weight: bold;
         }
         .principle-card h3 {
             font-size: 1.4rem;
@@ -466,9 +492,14 @@
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--color-dark) 0%, #34495e 100%);
+            background: white;
             color: white;
             text-align: center;
+        }
+        .cta-inner {
+             background: linear-gradient(135deg, var(--color-dark) 0%, #34495e 100%);
+             padding: 6rem 2rem;
+             border-radius: 20px;
         }
 
         /* Footer */
@@ -476,6 +507,9 @@
             background: #1a1a1a;
             color: #bdc3c7;
             padding: 5rem 0 2rem;
+            margin-top: -80px;
+            padding-top: 10rem;
+            clip-path: polygon(0 80px, 100% 0, 100% 100%, 0% 100%);
         }
         .footer-content {
             display: grid;
@@ -519,6 +553,7 @@
             .section-title { font-size: 2.5rem; }
             .vision-content { grid-template-columns: 1fr; }
             .container { padding: 0 1.5rem; }
+            .problem-section, .footer { clip-path: none; margin-top: 0; padding-top: 7rem; }
         }
     </style>
 </head>
@@ -540,9 +575,9 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-badge">🇿🇦 For South Africa, By South Africans</div>
-            <h1>Own Our Creativity</h1>
-            <p class="hero-subtitle">Unity Through Economic Empowerment</p>
-            <p class="hero-description">Building a non-racial, apolitical foundation for South African creatives to own their means of production, preserve our culture, and achieve economic independence.</p>
+            <h1>National Creative Fund</h1>
+            <p class="hero-subtitle">Own Our Creativity. Build Our Future.</p>
+            <p class="hero-description">A non-racial, apolitical foundation for South African creatives to own their means of production, preserve our culture, and achieve economic independence.</p>
             <div class="hero-buttons">
                 <a href="#structure" class="btn btn-primary">Discover the Model</a>
             </div>
@@ -614,7 +649,7 @@
             </div>
             <div class="principles-grid">
                 <div class="principle-card">
-                    <div class="principle-icon">⚖️</div>
+                    <div class="principle-icon">✓</div>
                     <h3>Transparency</h3>
                     <p>An anti-corruption focus with a 100% transparent funding model.</p>
                 </div>
@@ -716,31 +751,31 @@
             
             <div class="cultures-grid">
                 <div class="culture-card">
-                    <div class="culture-icon">🪘</div>
+                    <i class="culture-icon">🪘</i>
                     <h3>African Heritage</h3>
                     <p>Honoring the traditions of isiZulu, isiXhosa, Sesotho, and all our indigenous cultures through music, dance, and storytelling.</p>
                 </div>
                 
                 <div class="culture-card">
-                    <div class="culture-icon">🎸</div>
+                    <i class="culture-icon">🎸</i>
                     <h3>Afrikaans Culture</h3>
                     <p>Promoting the rich legacy and modern evolution of Afrikaans literature, music, and theatre.</p>
                 </div>
                 
                 <div class="culture-card">
-                    <div class="culture-icon">🥻</div>
+                    <i class="culture-icon">🥻</i>
                     <h3>Indian Heritage</h3>
                     <p>Celebrating the vibrant colour and rhythm of Indian arts, from classical dance to contemporary design.</p>
                 </div>
                 
                 <div class="culture-card">
-                    <div class="culture-icon">🎺</div>
+                    <i class="culture-icon">🎺</i>
                     <h3>Coloured Community</h3>
                     <p>Championing the unique sounds of jazz, ghoema, and the powerful visual arts of this dynamic community.</p>
                 </div>
 
                 <div class="culture-card">
-                     <div class="culture-icon">🎭</div>
+                     <i class="culture-icon">🎭</i>
                     <h3>English Heritage</h3>
                     <p>Supporting the diverse creative expressions in literature, film, and theatre that connect us all.</p>
                 </div>
@@ -751,9 +786,9 @@
     <!-- Call to Action -->
     <section class="section cta-section" id="join">
         <div class="container">
-            <div class="cta-content">
+            <div class="cta-inner">
                 <h2 class="section-title" style="color:white;">Join the Movement for a Creatively Sovereign South Africa</h2>
-                <p class="section-description" style="color: #eee;">This is more than a fund; it's a declaration of independence for our creative economy. Whether you are a creative, a business leader, or a proud citizen, you have a role to play.</p>
+                <p class="section-description" style="color: #eee; max-width: 800px;">This is more than a fund; it's a declaration of independence for our creative economy. Whether you are a creative, a business leader, or a proud citizen, you have a role to play.</p>
                 <a href="#" class="btn btn-primary" style="margin-top: 2rem;">Get Involved</a>
             </div>
         </div>
