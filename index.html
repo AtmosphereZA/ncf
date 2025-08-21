@@ -88,7 +88,7 @@
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             z-index: 1000;
-            padding: 1rem 0;
+            padding: 0.75rem 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
@@ -102,13 +102,14 @@
             padding: 0 2.5rem;
         }
 
-        .logo {
-            font-size: 2rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #DE3831 0%, #FFB612 25%, #000000 50%, #007A4D 75%, #002395 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        /* --- LOGO STYLING UPDATED --- */
+        .logo img {
+            height: 50px; /* Controls the height of the logo image */
+            width: auto;
+            transition: opacity 0.3s ease;
+        }
+        .logo img:hover {
+            opacity: 0.9;
         }
 
         .nav-links {
@@ -561,7 +562,10 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-container">
-            <div class="logo">NCF</div>
+            <!-- --- LOGO ELEMENT UPDATED --- -->
+            <a href="#" class="logo">
+                <img src="assets/images/ncflogo.png" alt="National Creative Fund Logo">
+            </a>
             <ul class="nav-links">
                 <li><a href="#problem">The Challenge</a></li>
                 <li><a href="#vision">Our Vision</a></li>
@@ -595,15 +599,15 @@
             <div class="problem-grid">
                 <div class="problem-card">
                     <h3>Foreign Ownership Dominance</h3>
-                    <p>International corporations control the distribution and profits of our music and art. Profits flow overseas, leaving our artists with little ownership or control. [18]</p>
+                    <p>International corporations control the distribution and profits of our music and art. Profits flow overseas, leaving our artists with little ownership or control.</p>
                 </div>
                 <div class="problem-card">
                     <h3>Lack of Industry Structure</h3>
-                    <p>Without a unifying body, artists are unrecognized as formal employees, face exorbitant taxes, and lack access to benefits, job security, or industry-wide safety standards. [5, 8]</p>
+                    <p>Without a unifying body, artists are unrecognized as formal employees, face exorbitant taxes, and lack access to benefits, job security, or industry-wide safety standards.</p>
                 </div>
                 <div class="problem-card">
                     <h3>Mismanaged Funds</h3>
-                    <p>State funding organizations intended to support artists have often been plagued by mismanagement and corruption, failing the very people they are meant to serve. [5]</p>
+                    <p>State funding organizations intended to support artists have often been plagued by mismanagement and corruption, failing the very people they are meant to serve.</p>
                 </div>
             </div>
         </div>
