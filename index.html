@@ -4,228 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>National Creative Fund - Unity Through Creativity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --color-primary: #e74c3c;
+            --color-secondary: #f39c12;
+            --color-dark: #2c3e50;
+            --color-light: #f8f9fa;
+            --color-grey: #7f8c8d;
+            --font-family: 'Inter', sans-serif;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: var(--font-family);
             line-height: 1.7;
-            color: #2c3e50;
+            color: var(--color-dark);
             overflow-x: hidden;
+            background-color: var(--color-light);
         }
-
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #e74c3c, #f39c12, #f1c40f, #27ae60, #3498db);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #2c3e50;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #e74c3c;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 50%;
-            background: linear-gradient(90deg, #e74c3c, #f39c12);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 25%, #e74c3c 50%, #f39c12 75%, #27ae60 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            color: white;
-            max-width: 900px;
-            padding: 0 2rem;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            font-weight: 600;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        .hero h1 {
-            font-size: 4.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 900;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-            line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            font-weight: 300;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
-            animation: fadeInUp 0.8s ease-out 0.6s both;
-        }
-
-        .hero-description {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 0.8s ease-out 0.8s both;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease-out 1s both;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            color: white;
-            padding: 1rem 2.5rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(231, 76, 60, 0.4);
-        }
-
-        .btn-secondary {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            color: white;
-            padding: 1rem 2.5rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-3px);
-        }
-
-        /* Cultural Showcase */
-        .cultural-showcase {
-            padding: 8rem 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cultural-showcase::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23ffffff" fill-opacity="1"></path></svg>') no-repeat center top;
-            background-size: cover;
-        }
-
+        
+        /* General Styles */
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
+        }
+
+        .section {
+            padding: 7rem 0;
+            position: relative;
         }
 
         .section-header {
@@ -235,432 +52,473 @@
 
         .section-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #e74c3c, #f39c12);
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
             color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-size: 0.85rem;
+            padding: 0.6rem 1.75rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
             font-weight: 700;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
             margin-bottom: 1.5rem;
             text-transform: uppercase;
         }
 
         .section-title {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 900;
-            color: #2c3e50;
+            color: var(--color-dark);
             margin-bottom: 1.5rem;
             line-height: 1.2;
         }
 
         .section-description {
-            font-size: 1.3rem;
-            color: #7f8c8d;
-            max-width: 700px;
+            font-size: 1.2rem;
+            color: var(--color-grey);
+            max-width: 750px;
             margin: 0 auto;
             line-height: 1.6;
         }
-
-        .cultures-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-        }
-
-        .culture-card {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem 2.5rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .culture-card::before {
-            content: '';
-            position: absolute;
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: var(--gradient);
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
         }
 
-        .culture-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .culture-card.african { --gradient: linear-gradient(90deg, #27ae60, #2ecc71); }
-        .culture-card.afrikaans { --gradient: linear-gradient(90deg, #e67e22, #f39c12); }
-        .culture-card.indian { --gradient: linear-gradient(90deg, #8e44ad, #9b59b6); }
-        .culture-card.coloured { --gradient: linear-gradient(90deg, #e74c3c, #c0392b); }
-        .culture-card.english { --gradient: linear-gradient(90deg, #3498db, #2980b9); }
-
-        .culture-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .culture-card h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
-        .culture-card p {
-            color: #7f8c8d;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        /* Vision Section */
-        .vision-section {
-            padding: 8rem 0;
-            background: white;
-        }
-
-        .vision-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            align-items: center;
-        }
-
-        .vision-text h2 {
-            font-size: 3rem;
-            font-weight: 900;
-            color: #2c3e50;
-            margin-bottom: 2rem;
-            line-height: 1.3;
-        }
-
-        .vision-highlight {
-            color: #e74c3c;
-            background: linear-gradient(135deg, #e74c3c, #f39c12);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .vision-text p {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .vision-stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .vision-stat {
-            text-align: center;
-            padding: 2rem;
-            background: #f8f9fa;
-            border-radius: 15px;
-        }
-
-        .vision-stat-number {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: #e74c3c;
-            display: block;
-        }
-
-        .vision-stat-label {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .vision-visual {
-            position: relative;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            padding: 3rem;
-            color: white;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        .vision-visual::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
-            animation: float 20s ease-in-out infinite;
-            z-index: 1;
-        }
-
-        .vision-visual-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .vision-visual h3 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-        }
-
-        .vision-visual p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            line-height: 1.7;
-        }
-
-        /* Structure Section */
-        .structure-section {
-            padding: 8rem 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        }
-
-        .structure-diagram {
-            margin-top: 4rem;
-            position: relative;
-        }
-
-        .structure-level {
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .structure-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .structure-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: var(--level-color);
-        }
-
-        .structure-card.executive { --level-color: linear-gradient(90deg, #e74c3c, #c0392b); }
-        .structure-card.council { --level-color: linear-gradient(90deg, #f39c12, #e67e22); }
-        .structure-card.industry { --level-color: linear-gradient(90deg, #27ae60, #2ecc71); }
-
-        .structure-header {
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
+            padding: 0 2.5rem;
         }
 
-        .structure-percentage {
-            background: var(--level-color);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 900;
-            font-size: 1.1rem;
-        }
-
-        .structure-title {
+        .logo {
             font-size: 2rem;
-            font-weight: 800;
-            color: #2c3e50;
+            font-weight: 900;
+            background: linear-gradient(135deg, #e74c3c, #f39c12, #27ae60, #3498db);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
-        .structure-description {
-            font-size: 1.1rem;
-            color: #7f8c8d;
-            line-height: 1.7;
-            margin-bottom: 2rem;
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.8rem;
         }
 
-        .structure-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-dark);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            position: relative;
         }
 
-        .structure-feature {
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-
-        .structure-feature-icon {
-            font-size: 1.5rem;
-            color: #e74c3c;
-        }
-
-        .structure-feature-text {
-            font-size: 0.95rem;
-            color: #2c3e50;
-            font-weight: 600;
-        }
-
-        /* Call to Action */
-        .cta-section {
-            padding: 8rem 0;
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
+            justify-content: center;
             text-align: center;
             position: relative;
             overflow: hidden;
+            background: #2c3e50;
+            color: white;
         }
 
-        .cta-section::before {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>') repeat;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><defs><pattern id="p" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23p)"/></svg>');
+            opacity: 0.5;
             z-index: 1;
         }
 
-        .cta-content {
+        .hero-content {
             position: relative;
             z-index: 2;
+            max-width: 950px;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease-out;
         }
 
-        .cta-title {
-            font-size: 3.5rem;
-            font-weight: 900;
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
             margin-bottom: 2rem;
-            line-height: 1.2;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: 600;
         }
 
-        .cta-description {
-            font-size: 1.3rem;
-            margin-bottom: 3rem;
+        .hero h1 {
+            font-size: 4.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
             opacity: 0.9;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .cta-buttons {
-            display: flex;
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(231, 76, 60, 0.4);
+        }
+        
+        /* Problem Section */
+        .problem-section {
+            background: white;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .problem-card {
+            background: var(--color-light);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--color-primary);
+        }
+
+        .problem-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-card p {
+            font-size: 1rem;
+            color: var(--color-grey);
+        }
+
+        /* Cultural Showcase */
+        .cultural-showcase {
+            background: var(--color-light);
+        }
+        .cultures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
-            justify-content: center;
+        }
+        .culture-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            text-align: center;
+            padding: 2.5rem;
+        }
+        .culture-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        .culture-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1;
+        }
+        .culture-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+        .culture-card p {
+            color: var(--color-grey);
+            font-size: 1rem;
+        }
+
+        /* Vision Section */
+        .vision-section {
+            background: white;
+        }
+        .vision-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        .vision-text h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+        }
+        .vision-highlight {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .vision-text p {
+            font-size: 1.1rem;
+            color: var(--color-grey);
+            margin: 1.5rem 0;
+        }
+        .vision-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .vision-stat {
+            background: var(--color-light);
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .vision-stat-number {
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--color-primary);
+        }
+        .vision-stat-label {
+            font-size: 0.9rem;
+            color: var(--color-grey);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .vision-visual {
+            background: linear-gradient(135deg, var(--color-dark), #34495e);
+            border-radius: 15px;
+            padding: 3.5rem;
+            color: white;
+            text-align: center;
+        }
+        .vision-visual h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Principles Section */
+        .principles-section {
+            background: var(--color-light);
+        }
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        .principle-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .principle-icon {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+        .principle-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        .principle-card p {
+            color: var(--color-grey);
+            font-size: 1rem;
+        }
+
+        /* Structure Section */
+        .structure-section {
+            background: white;
+        }
+        .structure-diagram {
+            max-width: 900px;
+            margin: 4rem auto 0;
+            position: relative;
+        }
+        .structure-level {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .structure-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid #eef;
+        }
+        .structure-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .structure-percentage {
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 900;
+            font-size: 1.5rem;
+            min-width: 80px;
+            text-align: center;
+        }
+        .structure-title {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        .structure-card.executive .structure-percentage, .structure-card.executive .structure-title {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+         .structure-card.executive .structure-percentage {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+         }
+
+        .structure-card.council .structure-percentage, .structure-card.council .structure-title {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        .structure-card.council .structure-percentage {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+        }
+
+        .structure-card.industry .structure-percentage, .structure-card.industry .structure-title {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        .structure-card.industry .structure-percentage {
+             background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+        }
+
+        .structure-description {
+            font-size: 1.1rem;
+            color: var(--color-grey);
+            margin-bottom: 1.5rem;
+        }
+        .structure-features {
+            display: flex;
+            gap: 1rem;
             flex-wrap: wrap;
+        }
+        .structure-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--color-light);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-dark) 0%, #34495e 100%);
+            color: white;
+            text-align: center;
         }
 
         /* Footer */
         .footer {
             background: #1a1a1a;
-            color: white;
-            padding: 4rem 0 2rem;
+            color: #bdc3c7;
+            padding: 5rem 0 2rem;
         }
-
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 3rem;
             margin-bottom: 3rem;
         }
-
         .footer-section h3 {
             font-size: 1.3rem;
-            font-weight: 800;
+            font-weight: 700;
             margin-bottom: 1.5rem;
             color: white;
         }
-
-        .footer-section p,
-        .footer-section a {
+        .footer-section p, .footer-section a {
             color: #bdc3c7;
             font-size: 0.95rem;
-            line-height: 1.7;
             text-decoration: none;
-            display: block;
             margin-bottom: 0.5rem;
+            display: block;
         }
-
         .footer-section a:hover {
-            color: #e74c3c;
+            color: var(--color-primary);
         }
-
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
             border-top: 1px solid #34495e;
             color: #7f8c8d;
-            font-size: 0.9rem;
         }
-
+        
         /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-        }
-
-        /* Mobile Responsive */
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 3rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.3rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .vision-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            
-            .section-title {
-                font-size: 2.5rem;
-            }
-            
-            .container {
-                padding: 0 1rem;
-            }
-            
-            .cultures-grid {
-                grid-template-columns: 1fr;
-            }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 3rem; }
+            .section-title { font-size: 2.5rem; }
+            .vision-content { grid-template-columns: 1fr; }
+            .container { padding: 0 1.5rem; }
         }
     </style>
 </head>
@@ -670,10 +528,10 @@
         <div class="nav-container">
             <div class="logo">NCF</div>
             <ul class="nav-links">
-                <li><a href="#vision">Vision</a></li>
-                <li><a href="#structure">Structure</a></li>
-                <li><a href="#cultures">Cultures</a></li>
-                <li><a href="#join">Join Us</a></li>
+                <li><a href="#problem">The Challenge</a></li>
+                <li><a href="#vision">Our Vision</a></li>
+                <li><a href="#structure">Fund Structure</a></li>
+                <li><a href="#cultures">Our Cultures</a></li>
             </ul>
         </div>
     </nav>
@@ -681,100 +539,121 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">🇿🇦 Proudly South African</div>
-            <h1>National Creative Fund</h1>
-            <p class="hero-subtitle">Unity Through Creativity</p>
-            <p class="hero-description">Building a non-racial, apolitical foundation where South African creativity becomes the catalyst for economic empowerment, cultural preservation, and national unity.</p>
+            <div class="hero-badge">🇿🇦 For South Africa, By South Africans</div>
+            <h1>Own Our Creativity</h1>
+            <p class="hero-subtitle">Unity Through Economic Empowerment</p>
+            <p class="hero-description">Building a non-racial, apolitical foundation for South African creatives to own their means of production, preserve our culture, and achieve economic independence.</p>
             <div class="hero-buttons">
-                <a href="#join" class="btn-primary">Join the Movement</a>
-                <a href="#vision" class="btn-secondary">Learn More</a>
+                <a href="#structure" class="btn btn-primary">Discover the Model</a>
             </div>
         </div>
     </section>
 
-    <!-- Cultural Showcase -->
-    <section class="cultural-showcase" id="cultures">
+    <!-- The Problem Section -->
+    <section class="section problem-section" id="problem">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">Rainbow Nation</span>
-                <h2 class="section-title">Celebrating Our Diverse Heritage</h2>
-                <p class="section-description">South Africa's strength lies in its diversity. The NCF honors and preserves all our cultures while building unity through shared creative expression.</p>
+                <span class="section-badge">The Challenge</span>
+                <h2 class="section-title">Why South African Creatives Are Left Behind</h2>
+                <p class="section-description">Our nation's creative soul is one of its greatest assets, yet it is undervalued and unprotected. Artists face systemic challenges that prevent them from building sustainable careers and preserving our heritage.</p>
             </div>
-            
-            <div class="cultures-grid">
-                <div class="culture-card african">
-                    <span class="culture-icon">🏛️</span>
-                    <h3>African Heritage</h3>
-                    <p>Celebrating the rich traditions of isiZulu, isiXhosa, Sesotho, Sepedi, Setswana, siSwati, Tshivenda, Xitsonga, and isiNdebele cultures through music, dance, storytelling, and crafts.</p>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>Foreign Ownership Dominance</h3>
+                    <p>International corporations control the distribution and profits of our music and art. Profits flow overseas, leaving our artists with little ownership or control. [18]</p>
                 </div>
-                
-                <div class="culture-card afrikaans">
-                    <span class="culture-icon">🎭</span>
-                    <h3>Afrikaans Culture</h3>
-                    <p>Preserving and promoting Afrikaans literature, music, theater, and arts while fostering cross-cultural collaboration and understanding.</p>
+                <div class="problem-card">
+                    <h3>Lack of Industry Structure</h3>
+                    <p>Without a unifying body, artists are unrecognized as formal employees, face exorbitant taxes, and lack access to benefits, job security, or industry-wide safety standards. [5, 8]</p>
                 </div>
-                
-                <div class="culture-card indian">
-                    <span class="culture-icon">🎨</span>
-                    <h3>Indian Heritage</h3>
-                    <p>Honoring the diverse Indian communities through classical and contemporary arts, including dance, music, cuisine, and traditional crafts.</p>
-                </div>
-                
-                <div class="culture-card coloured">
-                    <span class="culture-icon">🎵</span>
-                    <h3>Coloured Community</h3>
-                    <p>Celebrating the unique cultural contributions through music genres like jazz, ghoema, and contemporary arts that reflect this vibrant community.</p>
-                </div>
-                
-                <div class="culture-card english">
-                    <span class="culture-icon">📚</span>
-                    <h3>English Heritage</h3>
-                    <p>Supporting English-speaking creative communities in literature, theater, film, and contemporary arts while building bridges across all cultures.</p>
+                <div class="problem-card">
+                    <h3>Mismanaged Funds</h3>
+                    <p>State funding organizations intended to support artists have often been plagued by mismanagement and corruption, failing the very people they are meant to serve. [5]</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Vision Section -->
-    <section class="vision-section" id="vision">
+    <section class="section vision-section" id="vision">
         <div class="container">
             <div class="vision-content">
                 <div class="vision-text">
-                    <h2>Our <span class="vision-highlight">Vision</span></h2>
-                    <p>When your child says "I want to be creative" - we want you to have an answer that keeps them home, connected to their heritage, and building something truly South African.</p>
-                    <p>We're creating a fund that represents all creative disciplines under one roof, fostering cultural sovereignty while building real economic value for South Africa.</p>
-                    <p><strong>Independence with recognition. Heritage with innovation. Local roots with global reach.</strong></p>
+                    <span class="section-badge">Our Vision</span>
+                    <h2>A Future Where Creativity <span class="vision-highlight">Keeps Our Children Home</span></h2>
+                    <p>When your child says "I want to be an artist," we want you to have an answer that allows them to build a prosperous future right here, connected to their heritage, and contributing to our national economy.</p>
+                    <p>We are creating a self-sufficient fund, owned by the industry itself, to ensure our cultural sovereignty and build real economic value for all South Africans.</p>
                     
                     <div class="vision-stats">
                         <div class="vision-stat">
-                            <span class="vision-stat-number">R45B+</span>
-                            <span class="vision-stat-label">Creative Industry Value</span>
+                            <span class="vision-stat-number">R161B</span>
+                            <span class="vision-stat-label">Creative GDP Contribution (2020)</span>
                         </div>
                         <div class="vision-stat">
-                            <span class="vision-stat-number">2M+</span>
-                            <span class="vision-stat-label">Jobs Supported</span>
+                            <span class="vision-stat-number">~1M</span>
+                            <span class="vision-stat-label">Jobs Supported by Creative Economy</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="vision-visual">
-                    <div class="vision-visual-content">
-                        <h3>Cultural Sovereignty</h3>
-                        <p>Building an economy where South African creatives own their means of production, distribution, and cultural expression.</p>
-                        <p><strong>No more foreign ownership of our creative soul.</strong></p>
-                    </div>
+                    <h3>Cultural Sovereignty</h3>
+                    <p>It's time for a South African creative economy where our artists own their means of production, distribution, and cultural expression.</p>
+                    <p><strong>No more foreign ownership of our creative soul.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guiding Principles Section -->
+    <section class="section principles-section" id="principles">
+        <div class="container">
+             <div class="section-header">
+                <span class="section-badge">Our Values</span>
+                <h2 class="section-title">The Foundation of Our Fund</h2>
+            </div>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="principle-icon">⚖️</div>
+                    <h3>Transparency</h3>
+                    <p>An anti-corruption focus with a 100% transparent funding model.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-icon">✊</div>
+                    <h3>Self-Determination</h3>
+                    <p>The industry, not politicians, determines its own needs and directs its own funds.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-icon">🇿🇦</div>
+                    <h3>Cultural Preservation</h3>
+                    <p>Maintaining and celebrating the unique cultures that form our Rainbow Nation.</p>
+                </div>
+                 <div class="principle-card">
+                    <div class="principle-icon">🚀</div>
+                    <h3>Youth Empowerment</h3>
+                    <p>Creating sustainable career paths for the next generation of creatives.</p>
+                </div>
+                 <div class="principle-card">
+                    <div class="principle-icon">📈</div>
+                    <h3>Economic Independence</h3>
+                    <p>An industry that funds itself and reinvests in its own growth.</p>
+                </div>
+                 <div class="principle-card">
+                    <div class="principle-icon">🤝</div>
+                    <h3>Unity in Diversity</h3>
+                    <p>Using creativity as the ultimate unifying force for our nation.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Structure Section -->
-    <section class="structure-section" id="structure">
+    <section class="section structure-section" id="structure">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">How We Work</span>
-                <h2 class="section-title">Fund Structure</h2>
-                <p class="section-description">A transparent, three-tier system designed to maximize impact while ensuring accountability and industry ownership.</p>
+                <span class="section-badge">How It Works</span>
+                <h2 class="section-title">A Fund For the Industry, By the Industry</h2>
+                <p class="section-description">A transparent, three-tier system designed for maximum impact and accountability, ensuring that the vast majority of funds go directly back to the creatives on the ground.</p>
             </div>
             
             <div class="structure-diagram">
@@ -784,20 +663,11 @@
                             <div class="structure-percentage">5%</div>
                             <h3 class="structure-title">Executive Level</h3>
                         </div>
-                        <p class="structure-description">Strategic leadership, fund management, and institutional synergy. Ensuring transparency and delivering measurable results.</p>
-                        <div class="structure-features">
-                            <div class="structure-feature">
-                                <span class="structure-feature-icon">🎯</span>
-                                <span class="structure-feature-text">Strategic Direction</span>
-                            </div>
-                            <div class="structure-feature">
-                                <span class="structure-feature-icon">💰</span>
-                                <span class="structure-feature-text">Fund Management</span>
-                            </div>
-                            <div class="structure-feature">
-                                <span class="structure-feature-icon">⚖️</span>
-                                <span class="structure-feature-text">Legal Framework</span>
-                            </div>
+                        <p class="structure-description">Handles strategic leadership, fund management, and institutional synergy. This lean body ensures transparency and delivers measurable results.</p>
+                         <div class="structure-features">
+                            <div class="structure-feature">🎯 Strategic Direction</div>
+                            <div class="structure-feature">💰 Fund Management</div>
+                            <div class="structure-feature">⚖️ Legal Framework</div>
                         </div>
                     </div>
                 </div>
@@ -808,20 +678,11 @@
                             <div class="structure-percentage">5%</div>
                             <h3 class="structure-title">Council Level</h3>
                         </div>
-                        <p class="structure-description">Industry oversight, regulation, and organization. Like the NHBRC for construction, but for creative industries.</p>
+                        <p class="structure-description">Provides industry oversight, regulation, and organization. Like the NHBRC for construction, this council sets professional standards and ensures safety, all guided by industry leaders.</p>
                         <div class="structure-features">
-                            <div class="structure-feature">
-                                <span class="structure-feature-icon">🛡️</span>
-                                <span class="structure-feature-text">Industry Regulation</span>
-                            </div>
-                            <div class="structure-feature">
-                                <span class="structure-feature-icon">🤝</span>
-                                <span class="structure-feature-text">Standards & Safety</span>
-                            </div>
-                            <div class="structure-feature">
-                                <span class="structure-feature-icon">📊</span>
-                                <span class="structure-feature-text">Resource Organization</span>
-                            </div>
+                            <div class="structure-feature">🛡️ Industry Regulation</div>
+                            <div class="structure-feature">🤝 Standards & Safety</div>
+                            <div class="structure-feature">📊 Resource Organization</div>
                         </div>
                     </div>
                 </div>
@@ -829,4 +690,100 @@
                 <div class="structure-level">
                     <div class="structure-card industry">
                         <div class="structure-header">
-                            <div class="structure-percentage
+                            <div class="structure-percentage">90%</div>
+                            <h3 class="structure-title">The Industry Organizations</h3>
+                        </div>
+                        <p class="structure-description">The heart of the fund. 90% of all funds are directed here, to self-determining bodies representing every creative discipline—from music and craft to film and digital arts. They decide their own needs, create their own membership models, and drive their own growth.</p>
+                         <div class="structure-features">
+                            <div class="structure-feature">🎵 Music Guilds</div>
+                            <div class="structure-feature">🎨 Craft Collectives</div>
+                            <div class="structure-feature">🎬 Film & Media Associations</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Cultural Showcase -->
+    <section class="section cultural-showcase" id="cultures">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">One Nation, Many Voices</span>
+                <h2 class="section-title">Our Tapestry of Creativity</h2>
+                <p class="section-description">The NCF is founded on the principle of "Unity through Diversity." We exist to preserve and promote the distinct creative heartbeat of every community that makes South Africa whole.</p>
+            </div>
+            
+            <div class="cultures-grid">
+                <div class="culture-card">
+                    <div class="culture-icon">🪘</div>
+                    <h3>African Heritage</h3>
+                    <p>Honoring the traditions of isiZulu, isiXhosa, Sesotho, and all our indigenous cultures through music, dance, and storytelling.</p>
+                </div>
+                
+                <div class="culture-card">
+                    <div class="culture-icon">🎸</div>
+                    <h3>Afrikaans Culture</h3>
+                    <p>Promoting the rich legacy and modern evolution of Afrikaans literature, music, and theatre.</p>
+                </div>
+                
+                <div class="culture-card">
+                    <div class="culture-icon">🥻</div>
+                    <h3>Indian Heritage</h3>
+                    <p>Celebrating the vibrant colour and rhythm of Indian arts, from classical dance to contemporary design.</p>
+                </div>
+                
+                <div class="culture-card">
+                    <div class="culture-icon">🎺</div>
+                    <h3>Coloured Community</h3>
+                    <p>Championing the unique sounds of jazz, ghoema, and the powerful visual arts of this dynamic community.</p>
+                </div>
+
+                <div class="culture-card">
+                     <div class="culture-icon">🎭</div>
+                    <h3>English Heritage</h3>
+                    <p>Supporting the diverse creative expressions in literature, film, and theatre that connect us all.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section cta-section" id="join">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="section-title" style="color:white;">Join the Movement for a Creatively Sovereign South Africa</h2>
+                <p class="section-description" style="color: #eee;">This is more than a fund; it's a declaration of independence for our creative economy. Whether you are a creative, a business leader, or a proud citizen, you have a role to play.</p>
+                <a href="#" class="btn btn-primary" style="margin-top: 2rem;">Get Involved</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>National Creative Fund</h3>
+                    <p>Unity Through Creativity. For South Africa, By South Africans.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#problem">The Challenge</a>
+                    <a href="#vision">Our Vision</a>
+                    <a href="#structure">Fund Structure</a>
+                    <a href="#principles">Our Principles</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>info@ncf.org.za</p>
+                    <p>Johannesburg, South Africa</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 National Creative Fund. A Non-Racial, Apolitical Foundation.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
