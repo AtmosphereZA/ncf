@@ -3,33 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EventPro - Production Management Suite</title>
-    <meta name="description" content="Professional event production management platform">
-    <meta name="theme-color" content="#1a1a2e">
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" id="manifest" href="data:application/json;base64,eyJuYW1lIjoiRXZlbnRQcm8gUHJvZHVjdGlvbiBTdWl0ZSIsInNob3J0X25hbWUiOiJFdmVudFBybyIsInN0YXJ0X3VybCI6Ii8iLCJkaXNwbGF5Ijoic3RhbmRhbG9uZSIsImJhY2tncm91bmRfY29sb3IiOiIjMWExYTJlIiwidGhlbWVfY29sb3IiOiIjMWExYTJlIiwiaWNvbnMiOlt7InNyYyI6ImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjNhV1IwYUQwaU1UazVJaUJvWldsbmFIUTlJakU1T1NJZ2RtbGxkMEp2ZUQwaU1DQXdJREU1T1NBeE9Ua2lJR1pwYkd3OUluZG9hWFJsSWo0S1BHTnBjbU5zWlNCamVEMGlPVGtpSUdONVBTSTVPU0lnY2owaTJNMGlJR1pwYkd3OUlpTXhZVEZoTW1VaUx6NEtQQzl6ZG1jKyIsInNpemVzIjoiMTkyeDE5MiIsInR5cGUiOiJpbWFnZS9zdmcreG1sIn1dfQ==">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
+    <title>National Creative Fund - Unity Through Creativity</title>
     <style>
-        :root {
-            --primary: #1a1a2e;
-            --secondary: #16213e;
-            --accent: #0f3460;
-            --highlight: #e94560;
-            --success: #27ae60;
-            --warning: #f39c12;
-            --danger: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            --shadow: 0 10px 30px rgba(0,0,0,0.1);
-            --border-radius: 12px;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -37,1343 +12,821 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--gradient);
-            color: var(--light);
-            min-height: 100vh;
-            line-height: 1.6;
-        }
-
-        /* Header Styles */
-        .header {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--light);
-        }
-
-        .logo i {
-            color: var(--highlight);
-        }
-
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .user-badge {
-            background: var(--highlight);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .subscription-status {
-            background: var(--success);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            overflow-x: hidden;
         }
 
         /* Navigation */
-        .nav-container {
-            background: rgba(255,255,255,0.05);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding: 0 2rem;
-        }
-
         .nav {
-            display: flex;
-            max-width: 1200px;
-            margin: 0 auto;
-            overflow-x: auto;
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 1rem 1.5rem;
-            background: none;
-            border: none;
-            color: rgba(255,255,255,0.7);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        .nav-item:hover,
-        .nav-item.active {
-            color: var(--light);
-            background: rgba(255,255,255,0.1);
-        }
-
-        .nav-item i {
-            font-size: 1.1rem;
-        }
-
-        /* Main Layout */
-        .main-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            min-height: calc(100vh - 140px);
-        }
-
-        .page {
-            display: none;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Card Styles */
-        .card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow);
-        }
-
-        .card h2 {
-            color: var(--light);
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-            font-weight: 600;
-        }
-
-        .card h3 {
-            color: var(--light);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-            font-weight: 500;
-        }
-
-        /* Grid Layout */
-        .grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .grid-2 {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-
-        .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
-
-        /* Form Styles */
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--light);
-        }
-
-        .form-input {
+            position: fixed;
+            top: 0;
             width: 100%;
-            padding: 0.75rem 1rem;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 8px;
-            color: var(--light);
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
-        .form-input:focus {
-            outline: none;
-            border-color: var(--highlight);
-            box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
-        }
-
-        .form-input::placeholder {
-            color: rgba(255,255,255,0.5);
-        }
-
-        select.form-input {
-            cursor: pointer;
-        }
-
-        textarea.form-input {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        /* Button Styles */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 0.75rem 1.5rem;
-            background: var(--highlight);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .btn:hover {
-            background: #d63851;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
-        }
-
-        .btn-secondary {
-            background: var(--accent);
-        }
-
-        .btn-secondary:hover {
-            background: #0d2748;
-        }
-
-        .btn-success {
-            background: var(--success);
-        }
-
-        .btn-success:hover {
-            background: #229954;
-        }
-
-        .btn-warning {
-            background: var(--warning);
-        }
-
-        .btn-sm {
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-        }
-
-        /* Stats Cards */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat-card {
-            background: rgba(255,255,255,0.1);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--highlight);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.9rem;
-        }
-
-        /* List Styles */
-        .item-list {
-            list-style: none;
-        }
-
-        .item-list li {
-            background: rgba(255,255,255,0.05);
-            padding: 1rem;
-            margin-bottom: 0.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--highlight);
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 2rem;
         }
 
-        .item-info {
-            flex: 1;
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #e74c3c, #f39c12, #f1c40f, #27ae60, #3498db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .item-actions {
+        .nav-links {
             display: flex;
-            gap: 0.5rem;
+            list-style: none;
+            gap: 2.5rem;
         }
 
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: var(--primary);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            width: 90%;
-            max-width: 500px;
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
             position: relative;
         }
 
-        .modal-close {
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+
+        .nav-links a::after {
+            content: '';
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(90deg, #e74c3c, #f39c12);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 25%, #e74c3c 50%, #f39c12 75%, #27ae60 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 1s both;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
             border: none;
-            color: var(--light);
-            font-size: 1.5rem;
             cursor: pointer;
         }
 
-        /* Messaging */
-        .chat-container {
-            background: rgba(255,255,255,0.05);
-            border-radius: var(--border-radius);
-            height: 400px;
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(231, 76, 60, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+        }
+
+        /* Cultural Showcase */
+        .cultural-showcase {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cultural-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23ffffff" fill-opacity="1"></path></svg>') no-repeat center top;
+            background-size: cover;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #e74c3c, #f39c12);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 1.3rem;
+            color: #7f8c8d;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .cultures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .culture-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .culture-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient);
+        }
+
+        .culture-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .culture-card.african { --gradient: linear-gradient(90deg, #27ae60, #2ecc71); }
+        .culture-card.afrikaans { --gradient: linear-gradient(90deg, #e67e22, #f39c12); }
+        .culture-card.indian { --gradient: linear-gradient(90deg, #8e44ad, #9b59b6); }
+        .culture-card.coloured { --gradient: linear-gradient(90deg, #e74c3c, #c0392b); }
+        .culture-card.english { --gradient: linear-gradient(90deg, #3498db, #2980b9); }
+
+        .culture-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .culture-card h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .culture-card p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Vision Section */
+        .vision-section {
+            padding: 8rem 0;
+            background: white;
+        }
+
+        .vision-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .vision-text h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+
+        .vision-highlight {
+            color: #e74c3c;
+            background: linear-gradient(135deg, #e74c3c, #f39c12);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .vision-text p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .vision-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .vision-stat {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .vision-stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #e74c3c;
+            display: block;
+        }
+
+        .vision-stat-label {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .vision-visual {
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .vision-visual::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            animation: float 20s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .vision-visual-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .vision-visual h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .vision-visual p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Structure Section */
+        .structure-section {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .structure-diagram {
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .structure-level {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .structure-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .structure-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--level-color);
+        }
+
+        .structure-card.executive { --level-color: linear-gradient(90deg, #e74c3c, #c0392b); }
+        .structure-card.council { --level-color: linear-gradient(90deg, #f39c12, #e67e22); }
+        .structure-card.industry { --level-color: linear-gradient(90deg, #27ae60, #2ecc71); }
+
+        .structure-header {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .chat-messages {
-            flex: 1;
+        .structure-percentage {
+            background: var(--level-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1.1rem;
+        }
+
+        .structure-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #2c3e50;
+        }
+
+        .structure-description {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .structure-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .structure-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
             padding: 1rem;
-            overflow-y: auto;
+            background: #f8f9fa;
+            border-radius: 10px;
         }
 
-        .message {
-            background: rgba(255,255,255,0.1);
-            padding: 0.75rem;
-            border-radius: 8px;
+        .structure-feature-icon {
+            font-size: 1.5rem;
+            color: #e74c3c;
+        }
+
+        .structure-feature-text {
+            font-size: 0.95rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>') repeat;
+            z-index: 1;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .cta-description {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #bdc3c7;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            text-decoration: none;
+            display: block;
             margin-bottom: 0.5rem;
         }
 
-        .message-sender {
-            font-weight: 600;
-            color: var(--highlight);
+        .footer-section a:hover {
+            color: #e74c3c;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #7f8c8d;
             font-size: 0.9rem;
         }
 
-        .message-content {
-            margin-top: 0.25rem;
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .chat-input {
-            display: flex;
-            padding: 1rem;
-            gap: 0.5rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
         }
 
-        /* Schedule Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0.5rem;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--highlight);
-        }
-
-        .timeline-item {
-            background: rgba(255,255,255,0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -1.75rem;
-            top: 1rem;
-            width: 12px;
-            height: 12px;
-            background: var(--highlight);
-            border-radius: 50%;
-        }
-
-        .timeline-time {
-            font-weight: 600;
-            color: var(--highlight);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .header-content {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .hero-buttons {
                 flex-direction: column;
-                gap: 1rem;
+                align-items: center;
             }
-
-            .main-container {
-                padding: 1rem;
+            
+            .vision-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
-
-            .card {
-                padding: 1.5rem;
+            
+            .section-title {
+                font-size: 2.5rem;
             }
-
-            .nav {
-                justify-content: flex-start;
+            
+            .container {
+                padding: 0 1rem;
             }
-
-            .stats-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            
+            .cultures-grid {
+                grid-template-columns: 1fr;
             }
-        }
-
-        /* Loading Animation */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top-color: var(--highlight);
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Success/Error Messages */
-        .alert {
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .alert-success {
-            background: rgba(39, 174, 96, 0.2);
-            border: 1px solid var(--success);
-            color: var(--success);
-        }
-
-        .alert-error {
-            background: rgba(231, 76, 60, 0.2);
-            border: 1px solid var(--danger);
-            color: var(--danger);
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">
-                <i class="fas fa-music"></i>
-                <span>EventPro</span>
-            </div>
-            <div class="user-info">
-                <div class="subscription-status" id="subscriptionStatus">Pro Plan</div>
-                <div class="user-badge" id="userRole">Executive</div>
-                <button class="btn btn-sm" onclick="logout()">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Logout
-                </button>
-            </div>
-        </div>
-    </header>
-
     <!-- Navigation -->
-    <div class="nav-container">
-        <nav class="nav">
-            <button class="nav-item active" onclick="showPage('dashboard')" data-page="dashboard">
-                <i class="fas fa-tachometer-alt"></i>
-                Dashboard
-            </button>
-            <button class="nav-item" onclick="showPage('organizers')" data-page="organizers">
-                <i class="fas fa-users-cog"></i>
-                Organizers
-            </button>
-            <button class="nav-item" onclick="showPage('artists')" data-page="artists">
-                <i class="fas fa-microphone"></i>
-                Artists
-            </button>
-            <button class="nav-item" onclick="showPage('schedule')" data-page="schedule">
-                <i class="fas fa-calendar-alt"></i>
-                Schedule
-            </button>
-            <button class="nav-item" onclick="showPage('venues')" data-page="venues">
-                <i class="fas fa-map-marker-alt"></i>
-                Venues
-            </button>
-            <button class="nav-item" onclick="showPage('messaging')" data-page="messaging">
-                <i class="fas fa-comments"></i>
-                Messaging
-            </button>
-            <button class="nav-item" onclick="showPage('tracking')" data-page="tracking">
-                <i class="fas fa-truck"></i>
-                Tracking
-            </button>
-            <button class="nav-item" onclick="showPage('admin')" data-page="admin">
-                <i class="fas fa-cogs"></i>
-                Admin
-            </button>
-        </nav>
-    </div>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">NCF</div>
+            <ul class="nav-links">
+                <li><a href="#vision">Vision</a></li>
+                <li><a href="#structure">Structure</a></li>
+                <li><a href="#cultures">Cultures</a></li>
+                <li><a href="#join">Join Us</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <!-- Main Content -->
-    <div class="main-container">
-        <!-- Dashboard Page -->
-        <div id="dashboard" class="page active">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-value">24</div>
-                    <div class="stat-label">Active Events</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">156</div>
-                    <div class="stat-label">Artists Managed</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">89</div>
-                    <div class="stat-label">Crew Members</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">R2.4M</div>
-                    <div class="stat-label">Revenue This Quarter</div>
-                </div>
-            </div>
-
-            <div class="grid grid-2">
-                <div class="card">
-                    <h3>Recent Activity</h3>
-                    <ul class="item-list">
-                        <li>
-                            <div class="item-info">
-                                <strong>New Artist Added:</strong> Sarah Johnson
-                                <div class="stat-label">2 minutes ago</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-info">
-                                <strong>Schedule Updated:</strong> Summer Festival 2025
-                                <div class="stat-label">15 minutes ago</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-info">
-                                <strong>Message Received:</strong> Audio Team
-                                <div class="stat-label">1 hour ago</div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3>Upcoming Events</h3>
-                    <ul class="item-list">
-                        <li>
-                            <div class="item-info">
-                                <strong>Summer Music Festival</strong>
-                                <div class="stat-label">July 15-17, 2025</div>
-                            </div>
-                            <span class="btn btn-sm btn-secondary">View</span>
-                        </li>
-                        <li>
-                            <div class="item-info">
-                                <strong>Corporate Event</strong>
-                                <div class="stat-label">August 5, 2025</div>
-                            </div>
-                            <span class="btn btn-sm btn-secondary">View</span>
-                        </li>
-                    </ul>
-                </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🇿🇦 Proudly South African</div>
+            <h1>National Creative Fund</h1>
+            <p class="hero-subtitle">Unity Through Creativity</p>
+            <p class="hero-description">Building a non-racial, apolitical foundation where South African creativity becomes the catalyst for economic empowerment, cultural preservation, and national unity.</p>
+            <div class="hero-buttons">
+                <a href="#join" class="btn-primary">Join the Movement</a>
+                <a href="#vision" class="btn-secondary">Learn More</a>
             </div>
         </div>
+    </section>
 
-        <!-- Organizers Page -->
-        <div id="organizers" class="page">
-            <div class="card">
-                <h2>Organizer Tools</h2>
-                <p>Professional tools to help you create compelling pitches and manage client relationships.</p>
+    <!-- Cultural Showcase -->
+    <section class="cultural-showcase" id="cultures">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Rainbow Nation</span>
+                <h2 class="section-title">Celebrating Our Diverse Heritage</h2>
+                <p class="section-description">South Africa's strength lies in its diversity. The NCF honors and preserves all our cultures while building unity through shared creative expression.</p>
             </div>
-
-            <div class="grid grid-2">
-                <div class="card">
-                    <h3>AI Pitch Generator</h3>
-                    <div class="form-group">
-                        <label class="form-label">Event Type</label>
-                        <select class="form-input" id="eventType">
-                            <option>Music Festival</option>
-                            <option>Corporate Event</option>
-                            <option>Wedding</option>
-                            <option>Conference</option>
-                            <option>Concert</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Budget Range</label>
-                        <select class="form-input" id="budgetRange">
-                            <option>R10K - R25K</option>
-                            <option>R25K - R50K</option>
-                            <option>R50K - R100K</option>
-                            <option>R100K+</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Expected Attendance</label>
-                        <input type="number" class="form-input" id="attendance" placeholder="e.g. 500">
-                    </div>
-                    <button class="btn" onclick="generatePitch()">
-                        <i class="fas fa-magic"></i>
-                        Generate Pitch
-                    </button>
-                </div>
-
-                <div class="card">
-                    <h3>Generated Pitch</h3>
-                    <div id="pitchOutput" style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px; min-height: 200px;">
-                        <p style="color: rgba(255,255,255,0.5); text-align: center; padding: 2rem;">
-                            Generated pitch will appear here...
-                        </p>
-                    </div>
-                    <div style="margin-top: 1rem;">
-                        <button class="btn btn-secondary" onclick="copyPitch()">
-                            <i class="fas fa-copy"></i>
-                            Copy to Clipboard
-                        </button>
-                        <button class="btn btn-secondary" onclick="emailPitch()">
-                            <i class="fas fa-envelope"></i>
-                            Email to Client
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Client Management</h3>
-                <div class="grid grid-3">
-                    <div class="stat-card">
-                        <div class="stat-value">12</div>
-                        <div class="stat-label">Active Clients</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">8</div>
-                        <div class="stat-label">Pending Proposals</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">95%</div>
-                        <div class="stat-label">Client Satisfaction</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Artists Page -->
-        <div id="artists" class="page">
-            <div class="card">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                    <h2>Artist Management</h2>
-                    <button class="btn" onclick="openArtistModal()">
-                        <i class="fas fa-plus"></i>
-                        Add Artist
-                    </button>
-                </div>
-
-                <div class="grid grid-3">
-                    <div class="stat-card">
-                        <div class="stat-value">156</div>
-                        <div class="stat-label">Total Artists</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">23</div>
-                        <div class="stat-label">Active Bookings</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">R45K</div>
-                        <div class="stat-label">Avg. Fee</div>
-                    </div>
-                </div>
-
-                <ul class="item-list" id="artistList">
-                    <li>
-                        <div class="item-info">
-                            <strong>Sarah Johnson</strong>
-                            <div class="stat-label">Pop • R25,000 • Available</div>
-                        </div>
-                        <div class="item-actions">
-                            <button class="btn btn-sm btn-secondary">Edit</button>
-                            <button class="btn btn-sm">Book</button>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item-info">
-                            <strong>The Electric Groove</strong>
-                            <div class="stat-label">Electronic • R35,000 • Touring</div>
-                        </div>
-                        <div class="item-actions">
-                            <button class="btn btn-sm btn-secondary">Edit</button>
-                            <button class="btn btn-sm">Book</button>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item-info">
-                            <strong>Marcus Rivera</strong>
-                            <div class="stat-label">Hip-Hop • R20,000 • Available</div>
-                        </div>
-                        <div class="item-actions">
-                            <button class="btn btn-sm btn-secondary">Edit</button>
-                            <button class="btn btn-sm">Book</button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Schedule Page -->
-        <div id="schedule" class="page">
-            <div class="card">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                    <h2>Event Schedule</h2>
-                    <button class="btn" onclick="addScheduleItem()">
-                        <i class="fas fa-plus"></i>
-                        Add Event
-                    </button>
-                </div>
-
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-time">10:00 AM - Setup</div>
-                        <strong>Stage & Audio Setup</strong>
-                        <div class="stat-label">Audio Team, Stage Crew</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">2:00 PM - Soundcheck</div>
-                        <strong>Artist Soundcheck</strong>
-                        <div class="stat-label">Sarah Johnson, Audio Team</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">7:00 PM - Show</div>
-                        <strong>Main Performance</strong>
-                        <div class="stat-label">All Teams</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">11:00 PM - Teardown</div>
-                        <strong>Equipment Breakdown</strong>
-                        <div class="stat-label">All Crew</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Venues Page -->
-        <div id="venues" class="page">
-            <div class="card">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                    <h2>Venue Management</h2>
-                    <button class="btn" onclick="addVenue()">
-                        <i class="fas fa-plus"></i>
-                        Add Venue
-                    </button>
-                </div>
-
-                <div class="grid grid-2">
-                    <div class="card">
-                        <h3>Metro Arena</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Downtown District</p>
-                        <p><i class="fas fa-users"></i> Capacity: 15,000</p>
-                        <p><i class="fas fa-dollar-sign"></i> R50,000/day</p>
-                        <div style="margin-top: 1rem;">
-                            <span class="btn btn-sm btn-success">Available</span>
-                            <button class="btn btn-sm btn-secondary">View Details</button>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h3>Riverside Theater</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Arts Quarter</p>
-                        <p><i class="fas fa-users"></i> Capacity: 2,500</p>
-                        <p><i class="fas fa-dollar-sign"></i> R15,000/day</p>
-                        <div style="margin-top: 1rem;">
-                            <span class="btn btn-sm btn-warning">Booked</span>
-                            <button class="btn btn-sm btn-secondary">View Details</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Messaging Page -->
-        <div id="messaging" class="page">
-            <div class="card">
-                <h2>Team Communication</h2>
-                <div class="grid grid-2">
-                    <div class="chat-container">
-                        <div class="chat-messages" id="chatMessages">
-                            <div class="message">
-                                <div class="message-sender">Audio Team Lead</div>
-                                <div class="message-content">Sound check complete for main stage</div>
-                            </div>
-                            <div class="message">
-                                <div class="message-sender">Stage Manager</div>
-                                <div class="message-content">Artists arrived on site. Beginning setup now.</div>
-                            </div>
-                            <div class="message">
-                                <div class="message-sender">Security Team</div>
-                                <div class="message-content">All entrances secured. Ready for doors to open.</div>
-                            </div>
-                        </div>
-                        <div class="chat-input">
-                            <input type="text" class="form-input" id="messageInput" placeholder="Type your message...">
-                            <button class="btn" onclick="sendMessage()">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div>
-                        <h3>Active Channels</h3>
-                        <ul class="item-list">
-                            <li>
-                                <div class="item-info">
-                                    <strong>Main Event</strong>
-                                    <div class="stat-label">45 members online</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item-info">
-                                    <strong>Audio Team</strong>
-                                    <div class="stat-label">12 members online</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item-info">
-                                    <strong>Stage Crew</strong>
-                                    <div class="stat-label">8 members online</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="item-info">
-                                    <strong>Security</strong>
-                                    <div class="stat-label">15 members online</div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tracking Page -->
-        <div id="tracking" class="page">
-            <div class="card">
-                <h2>Artist & Equipment Tracking</h2>
-                <p>Real-time tracking using LoRaWAN devices for artist transportation and equipment logistics.</p>
-            </div>
-
-            <div class="grid grid-2">
-                <div class="card">
-                    <h3>Artist Transportation</h3>
-                    <ul class="item-list">
-                        <li>
-                            <div class="item-info">
-                                <strong>Sarah Johnson</strong>
-                                <div class="stat-label">
-                                    <i class="fas fa-map-marker-alt"></i> 5 miles from venue • ETA: 15 min
-                                </div>
-                            </div>
-                            <span class="btn btn-sm btn-success">On Route</span>
-                        </li>
-                        <li>
-                            <div class="item-info">
-                                <strong>The Electric Groove</strong>
-                                <div class="stat-label">
-                                    <i class="fas fa-map-marker-alt"></i> Backstage • Arrived
-                                </div>
-                            </div>
-                            <span class="btn btn-sm btn-warning">Arrived</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3>Equipment Status</h3>
-                    <ul class="item-list">
-                        <li>
-                            <div class="item-info">
-                                <strong>Main PA System</strong>
-                                <div class="stat-label">
-                                    <i class="fas fa-map-marker-alt"></i> Main Stage • Operational
-                                </div>
-                            </div>
-                            <span class="btn btn-sm btn-success">Online</span>
-                        </li>
-                        <li>
-                            <div class="item-info">
-                                <strong>Lighting Rig #1</strong>
-                                <div class="stat-label">
-                                    <i class="fas fa-map-marker-alt"></i> Storage • Ready
-                                </div>
-                            </div>
-                            <span class="btn btn-sm btn-secondary">Standby</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Live Map</h3>
-                <div style="background: rgba(255,255,255,0.05); height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
-                    <p style="color: rgba(255,255,255,0.5);">
-                        <i class="fas fa-map" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>
-                        Interactive tracking map would be integrated here
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Admin Page -->
-        <div id="admin" class="page">
-            <div class="card">
-                <h2>System Administration</h2>
-                <div class="grid grid-3">
-                    <div class="stat-card">
-                        <div class="stat-value">89</div>
-                        <div class="stat-label">Active Users</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">156</div>
-                        <div class="stat-label">Paid Subscriptions</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-value">99.9%</div>
-                        <div class="stat-label">System Uptime</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-2">
-                <div class="card">
-                    <h3>User Management</h3>
-                    <button class="btn" onclick="addUser()">
-                        <i class="fas fa-user-plus"></i>
-                        Add User
-                    </button>
-                    <ul class="item-list" style="margin-top: 1rem;">
-                        <li>
-                            <div class="item-info">
-                                <strong>John Smith</strong>
-                                <div class="stat-label">Audio Engineer • Pro Plan</div>
-                            </div>
-                            <div class="item-actions">
-                                <button class="btn btn-sm btn-secondary">Edit</button>
-                                <button class="btn btn-sm btn-warning">Suspend</button>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="item-info">
-                                <strong>Maria Garcia</strong>
-                                <div class="stat-label">Stage Manager • Premium Plan</div>
-                            </div>
-                            <div class="item-actions">
-                                <button class="btn btn-sm btn-secondary">Edit</button>
-                                <button class="btn btn-sm btn-warning">Suspend</button>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3>System Settings</h3>
-                    <div class="form-group">
-                        <label class="form-label">Default Event Duration</label>
-                        <select class="form-input">
-                            <option>4 hours</option>
-                            <option>8 hours</option>
-                            <option>12 hours</option>
-                            <option>24 hours</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Notification Settings</label>
-                        <select class="form-input">
-                            <option>Real-time</option>
-                            <option>Every 15 minutes</option>
-                            <option>Hourly</option>
-                            <option>Daily digest</option>
-                        </select>
-                    </div>
-                    <button class="btn">Save Settings</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Artist Modal -->
-    <div id="artistModal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeArtistModal()">&times;</button>
-            <h3>Add New Artist</h3>
-            <form id="artistForm">
-                <div class="form-group">
-                    <label class="form-label">Artist Name</label>
-                    <input type="text" class="form-input" id="artistName" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Genre</label>
-                    <select class="form-input" id="artistGenre" required>
-                        <option value="">Select Genre</option>
-                        <option>Pop</option>
-                        <option>Rock</option>
-                        <option>Hip-Hop</option>
-                        <option>Electronic</option>
-                        <option>Jazz</option>
-                        <option>Country</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Fee</label>
-                    <input type="number" class="form-input" id="artistFee" placeholder="25000">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Status</label>
-                    <select class="form-input" id="artistStatus">
-                        <option>Available</option>
-                        <option>Touring</option>
-                        <option>Unavailable</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn">Add Artist</button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        // App State
-        let currentUser = {
-            id: 'exec1',
-            name: 'Sarah Wilson',
-            role: 'Executive',
-            subscription: 'Pro Plan'
-        };
-
-        // User permissions system
-        const permissions = {
-            'Executive': ['dashboard', 'organizers', 'artists', 'schedule', 'venues', 'messaging', 'tracking', 'admin'],
-            'Audio': ['dashboard', 'schedule', 'messaging', 'tracking'],
-            'Stage': ['dashboard', 'schedule', 'messaging', 'artists'],
-            'Crew': ['dashboard', 'messaging']
-        };
-
-        // Data storage
-        const data = {
-            artists: [
-                { id: 1, name: 'Sarah Johnson', genre: 'Pop', fee: 25000, status: 'Available' },
-                { id: 2, name: 'The Electric Groove', genre: 'Electronic', fee: 35000, status: 'Touring' },
-                { id: 3, name: 'Marcus Rivera', genre: 'Hip-Hop', fee: 20000, status: 'Available' }
-            ],
-            messages: [
-                { sender: 'Audio Team Lead', content: 'Sound check complete for main stage', time: new Date() },
-                { sender: 'Stage Manager', content: 'Artists arrived on site. Beginning setup now.', time: new Date() },
-                { sender: 'Security Team', content: 'All entrances secured. Ready for doors to open.', time: new Date() }
-            ]
-        };
-
-        // Initialize app
-        window.addEventListener('load', () => {
-            updateUserInfo();
-            checkPermissions();
             
-            // Register service worker for PWA
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('data:text/javascript;base64,c2VsZi5hZGRFdmVudExpc3RlbmVyKCdpbnN0YWxsJywgZXZlbnQgPT4ge30pOw==')
-                    .catch(err => console.log('Service Worker registration failed'));
-            }
-        });
-
-        // Navigation functions
-        function showPage(pageId) {
-            // Check permissions
-            if (!permissions[currentUser.role].includes(pageId)) {
-                showAlert('Access denied for your role', 'error');
-                return;
-            }
-
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-
-            // Show selected page
-            document.getElementById(pageId).classList.add('active');
-
-            // Update navigation
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            document.querySelector(`[data-page="${pageId}"]`).classList.add('active');
-        }
-
-        function updateUserInfo() {
-            document.getElementById('userRole').textContent = currentUser.role;
-            document.getElementById('subscriptionStatus').textContent = currentUser.subscription;
-        }
-
-        function checkPermissions() {
-            document.querySelectorAll('.nav-item').forEach(item => {
-                const page = item.dataset.page;
-                if (!permissions[currentUser.role].includes(page)) {
-                    item.style.opacity = '0.5';
-                    item.style.cursor = 'not-allowed';
-                }
-            });
-        }
-
-        // Organizer functions
-        function generatePitch() {
-            const eventType = document.getElementById('eventType').value;
-            const budget = document.getElementById('budgetRange').value;
-            const attendance = document.getElementById('attendance').value;
-
-            const pitches = {
-                'Music Festival': `🎵 Transform Your Vision Into An Unforgettable Music Experience
-
-Dear Client,
-
-EventPro is excited to present our comprehensive production solution for your ${eventType}. With an expected attendance of ${attendance} guests and a budget of R{budget}, we'll deliver:
-
-✨ Complete Audio/Visual Production
-🎤 Professional Artist Management
-🔧 Full Technical Crew & Equipment
-📱 Real-time Event Coordination
-🚐 Artist Transportation & Logistics
-
-Our proven track record includes 200+ successful events, with 99.5% client satisfaction. We handle everything from concept to cleanup, ensuring your event exceeds expectations.
-
-Ready to make magic happen? Let's discuss your vision.
-
-Best regards,
-The EventPro Team`,
-                'Corporate Event': `🏢 Elevate Your Corporate Event to New Heights
-
-Dear Decision Maker,
-
-EventPro specializes in delivering flawless corporate events that leave lasting impressions. For your upcoming event with ${attendance} attendees and ${budget} budget:
-
-📊 Professional A/V and Staging
-🎯 Seamless Event Coordination  
-🍽️ Premium Catering Services
-📱 Live Event Management Technology
-🚗 VIP Transportation Services
-
-We understand corporate events require precision, professionalism, and flawless execution. Our team has managed Fortune 500 events, ensuring your brand is presented perfectly.
-
-Let's schedule a consultation to discuss your objectives.
-
-Professionally yours,
-EventPro Corporate Division`
-            };
-
-            const output = pitches[eventType] || pitches['Music Festival'];
-            document.getElementById('pitchOutput').innerHTML = `<pre style="white-space: pre-wrap; font-family: inherit;">${output}</pre>`;
-        }
-
-        function copyPitch() {
-            const pitch = document.getElementById('pitchOutput').textContent;
-            navigator.clipboard.writeText(pitch).then(() => {
-                showAlert('Pitch copied to clipboard!', 'success');
-            });
-        }
-
-        function emailPitch() {
-            showAlert('Email integration would open here', 'success');
-        }
-
-        // Artist functions
-        function openArtistModal() {
-            document.getElementById('artistModal').classList.add('active');
-        }
-
-        function closeArtistModal() {
-            document.getElementById('artistModal').classList.remove('active');
-        }
-
-        document.getElementById('artistForm')?.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const artist = {
-                id: data.artists.length + 1,
-                name: document.getElementById('artistName').value,
-                genre: document.getElementById('artistGenre').value,
-                fee: parseInt(document.getElementById('artistFee').value),
-                status: document.getElementById('artistStatus').value
-            };
-
-            data.artists.push(artist);
-            updateArtistList();
-            closeArtistModal();
-            showAlert('Artist added successfully!', 'success');
-            this.reset();
-        });
-
-        function updateArtistList() {
-            const list = document.getElementById('artistList');
-            if (!list) return;
-
-            list.innerHTML = data.artists.map(artist => `
-                <li>
-                    <div class="item-info">
-                        <strong>${artist.name}</strong>
-                        <div class="stat-label">${artist.genre} • $R{artist.fee.toLocaleString()} • ${artist.status}</div>
-                    </div>
-                    <div class="item-actions">
-                        <button class="btn btn-sm btn-secondary">Edit</button>
-                        <button class="btn btn-sm">Book</button>
-                    </div>
-                </li>
-            `).join('');
-        }
-
-        // Schedule functions
-        function addScheduleItem() {
-            const time = prompt('Enter time (e.g., 10:00 AM):');
-            const event = prompt('Enter event description:');
-            const team = prompt('Enter team/crew:');
-            
-            if (time && event && team) {
-                showAlert('Schedule item added!', 'success');
-            }
-        }
-
-        // Messaging functions
-        function sendMessage() {
-            const input = document.getElementById('messageInput');
-            const content = input.value.trim();
-            
-            if (content) {
-                const message = {
-                    sender: currentUser.name,
-                    content: content,
-                    time: new Date()
-                };
+            <div class="cultures-grid">
+                <div class="culture-card african">
+                    <span class="culture-icon">🏛️</span>
+                    <h3>African Heritage</h3>
+                    <p>Celebrating the rich traditions of isiZulu, isiXhosa, Sesotho, Sepedi, Setswana, siSwati, Tshivenda, Xitsonga, and isiNdebele cultures through music, dance, storytelling, and crafts.</p>
+                </div>
                 
-                data.messages.push(message);
-                updateChatMessages();
-                input.value = '';
-                showAlert('Message sent!', 'success');
-            }
-        }
-
-        function updateChatMessages() {
-            const container = document.getElementById('chatMessages');
-            if (!container) return;
-
-            container.innerHTML = data.messages.slice(-10).map(msg => `
-                <div class="message">
-                    <div class="message-sender">${msg.sender}</div>
-                    <div class="message-content">${msg.content}</div>
+                <div class="culture-card afrikaans">
+                    <span class="culture-icon">🎭</span>
+                    <h3>Afrikaans Culture</h3>
+                    <p>Preserving and promoting Afrikaans literature, music, theater, and arts while fostering cross-cultural collaboration and understanding.</p>
                 </div>
-            `).join('');
-        }
+                
+                <div class="culture-card indian">
+                    <span class="culture-icon">🎨</span>
+                    <h3>Indian Heritage</h3>
+                    <p>Honoring the diverse Indian communities through classical and contemporary arts, including dance, music, cuisine, and traditional crafts.</p>
+                </div>
+                
+                <div class="culture-card coloured">
+                    <span class="culture-icon">🎵</span>
+                    <h3>Coloured Community</h3>
+                    <p>Celebrating the unique cultural contributions through music genres like jazz, ghoema, and contemporary arts that reflect this vibrant community.</p>
+                </div>
+                
+                <div class="culture-card english">
+                    <span class="culture-icon">📚</span>
+                    <h3>English Heritage</h3>
+                    <p>Supporting English-speaking creative communities in literature, theater, film, and contemporary arts while building bridges across all cultures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // Utility functions
-        function showAlert(message, type = 'success') {
-            const alert = document.createElement('div');
-            alert.className = `alert alert-${type}`;
-            alert.textContent = message;
+    <!-- Vision Section -->
+    <section class="vision-section" id="vision">
+        <div class="container">
+            <div class="vision-content">
+                <div class="vision-text">
+                    <h2>Our <span class="vision-highlight">Vision</span></h2>
+                    <p>When your child says "I want to be creative" - we want you to have an answer that keeps them home, connected to their heritage, and building something truly South African.</p>
+                    <p>We're creating a fund that represents all creative disciplines under one roof, fostering cultural sovereignty while building real economic value for South Africa.</p>
+                    <p><strong>Independence with recognition. Heritage with innovation. Local roots with global reach.</strong></p>
+                    
+                    <div class="vision-stats">
+                        <div class="vision-stat">
+                            <span class="vision-stat-number">R45B+</span>
+                            <span class="vision-stat-label">Creative Industry Value</span>
+                        </div>
+                        <div class="vision-stat">
+                            <span class="vision-stat-number">2M+</span>
+                            <span class="vision-stat-label">Jobs Supported</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="vision-visual">
+                    <div class="vision-visual-content">
+                        <h3>Cultural Sovereignty</h3>
+                        <p>Building an economy where South African creatives own their means of production, distribution, and cultural expression.</p>
+                        <p><strong>No more foreign ownership of our creative soul.</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Structure Section -->
+    <section class="structure-section" id="structure">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">How We Work</span>
+                <h2 class="section-title">Fund Structure</h2>
+                <p class="section-description">A transparent, three-tier system designed to maximize impact while ensuring accountability and industry ownership.</p>
+            </div>
             
-            document.body.appendChild(alert);
-            alert.style.position = 'fixed';
-            alert.style.top = '20px';
-            alert.style.right = '20px';
-            alert.style.zIndex = '1001';
-            
-            setTimeout(() => {
-                alert.remove();
-            }, 3000);
-        }
-
-        function logout() {
-            if (confirm('Are you sure you want to logout?')) {
-                showAlert('Logged out successfully', 'success');
-                // In a real app, this would redirect to login
-            }
-        }
-
-        function addVenue() {
-            showAlert('Venue management modal would open here', 'success');
-        }
-
-        function addUser() {
-            showAlert('User management modal would open here', 'success');
-        }
-
-        // Allow Enter key to send messages
-        document.getElementById('messageInput')?.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
-
-        // Initialize data on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            updateArtistList();
-            updateChatMessages();
-        });
-    </script>
-</body>
-</html>
+            <div class="structure-diagram">
+                <div class="structure-level">
+                    <div class="structure-card executive">
+                        <div class="structure-header">
+                            <div class="structure-percentage">5%</div>
+                            <h3 class="structure-title">Executive Level</h3>
+                        </div>
+                        <p class="structure-description">Strategic leadership, fund management, and institutional synergy. Ensuring transparency and delivering measurable results.</p>
+                        <div class="structure-features">
+                            <div class="structure-feature">
+                                <span class="structure-feature-icon">🎯</span>
+                                <span class="structure-feature-text">Strategic Direction</span>
+                            </div>
+                            <div class="structure-feature">
+                                <span class="structure-feature-icon">💰</span>
+                                <span class="structure-feature-text">Fund Management</span>
+                            </div>
+                            <div class="structure-feature">
+                                <span class="structure-feature-icon">⚖️</span>
+                                <span class="structure-feature-text">Legal Framework</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="structure-level">
+                    <div class="structure-card council">
+                        <div class="structure-header">
+                            <div class="structure-percentage">5%</div>
+                            <h3 class="structure-title">Council Level</h3>
+                        </div>
+                        <p class="structure-description">Industry oversight, regulation, and organization. Like the NHBRC for construction, but for creative industries.</p>
+                        <div class="structure-features">
+                            <div class="structure-feature">
+                                <span class="structure-feature-icon">🛡️</span>
+                                <span class="structure-feature-text">Industry Regulation</span>
+                            </div>
+                            <div class="structure-feature">
+                                <span class="structure-feature-icon">🤝</span>
+                                <span class="structure-feature-text">Standards & Safety</span>
+                            </div>
+                            <div class="structure-feature">
+                                <span class="structure-feature-icon">📊</span>
+                                <span class="structure-feature-text">Resource Organization</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="structure-level">
+                    <div class="structure-card industry">
+                        <div class="structure-header">
+                            <div class="structure-percentage
